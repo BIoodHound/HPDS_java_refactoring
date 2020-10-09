@@ -18,8 +18,23 @@ public class Rover {
 		}
 
 		public Position forward(Heading heading) {
+			if(heading.equals(Heading.of("N"))){
+				return new Position(this.x, this.y+1);
+			}
+			if(heading.equals(Heading.of("S"))){
+				return new Position(this.x, this.y-1);
+			}
+			if(heading.equals(Heading.of("E"))){
+				return new Position(this.x+1, this.y);
+			}
+			if(heading.equals(Heading.of("W"))){
+				return new Position(this.x-1, this.y);
+			}
 			return null;
 		}
+
+
+
 
 		@Override
 		public boolean equals(Object object) {
