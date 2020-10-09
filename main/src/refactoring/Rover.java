@@ -33,7 +33,19 @@ public class Rover {
 			return null;
 		}
 
-		public Position backward(Heading heading){
+		public Position backward(Heading heading) {
+			if(heading.equals(Heading.of("N"))){
+				return new Position(this.x, this.y-1);
+			}
+			if(heading.equals(Heading.of("S"))){
+				return new Position(this.x, this.y+1);
+			}
+			if(heading.equals(Heading.of("E"))){
+				return new Position(this.x-1, this.y);
+			}
+			if(heading.equals(Heading.of("W"))){
+				return new Position(this.x+1, this.y);
+			}
 			return null;
 		}
 
@@ -52,37 +64,5 @@ public class Rover {
 		}
 
 	}
-
-
-	public enum Heading {
-		North, East, South, West;
-
-		public static Heading of(String label) {
-			return of(label.charAt(0));
-		}
-
-		public static Heading of(char label) {
-			if (label == 'N') return North;
-			if (label == 'S') return South;
-			if (label == 'W') return West;
-			if (label == 'E') return East;
-			return null;
-		}
-
-		public Heading turnRight() {
-			return values()[add(+1)];
-		}
-
-		public Heading turnLeft() {
-			return values()[add(-1)];
-		}
-
-		private int add(int offset) {
-			return (this.ordinal() + offset + values().length) % values().length;
-		}
-
-	}
-
-
 }
 

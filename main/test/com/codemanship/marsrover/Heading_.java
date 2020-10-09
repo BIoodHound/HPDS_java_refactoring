@@ -1,10 +1,10 @@
 package com.codemanship.marsrover;
 
 import org.junit.Test;
-import refactoring.Rover.Heading;
+import refactoring.Heading;
 
 import static org.junit.Assert.assertEquals;
-import static refactoring.Rover.Heading.*;
+import static refactoring.Heading.*;
 
 public class Heading_ {
 
