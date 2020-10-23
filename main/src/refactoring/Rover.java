@@ -5,13 +5,19 @@ public class Rover {
 	public Position position;
 	public Rover(String facing, int x, int y) {
 		this.heading = Heading.of(facing);
-		position = new Position(x,y);
+		this.position = new Position(x,y);
 	}
 
 	public Rover(Heading heading, int x, int y) {
 		this.heading = heading;
-		position = new Position(x,y);
+		this.position = new Position(x,y);
 	}
+	public Rover(Heading heading, Position p) {
+		this.heading = heading;
+		this.position = p;
+	}
+
+
 
 	public Heading heading(){
 		return heading;

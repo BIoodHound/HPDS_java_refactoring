@@ -16,5 +16,10 @@ public class Rover__ {
         assertThat(new Rover("North", 5, 5).position()).isEqualTo(new Position(5,5));
     }
 
+    @Test
+    public void could_be_initialized_using_new_constructors() {
+        assertThat(new Rover(North, new Position(4,4)).position()).isEqualTo(new Position(4,4));
+        assertThat(new Rover(North, 4, 4).position()).isEqualTo(new Position(4,4));
+    }
 
 }
