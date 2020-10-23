@@ -1,11 +1,23 @@
 package refactoring;
 
 public class Rover {
-
+	public Heading heading;
+	public Position position;
 	public Rover(String facing, int x, int y) {
+		this.heading = Heading.of(facing);
+		position = new Position(x,y);
 	}
 
 	public Rover(Heading heading, int x, int y) {
+		this.heading = heading;
+		position = new Position(x,y);
+	}
+
+	public Heading heading(){
+		return heading;
+	}
+	public Position position(){
+		return position;
 	}
 
 	public static class Position {
