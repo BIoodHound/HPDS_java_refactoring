@@ -1,8 +1,12 @@
 package refactoring;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Rover {
-	public Heading heading;
-	public Position position;
+	private Heading heading;
+	private Position position;
+
 	public Rover(String facing, int x, int y) {
 		this.heading = Heading.of(facing);
 		this.position = new Position(x,y);
@@ -12,18 +16,28 @@ public class Rover {
 		this.heading = heading;
 		this.position = new Position(x,y);
 	}
-	public Rover(Heading heading, Position p) {
+
+	public Rover(Heading heading, Position position) {
 		this.heading = heading;
-		this.position = p;
+		this.position = position;
 	}
-
-
 
 	public Heading heading(){
 		return heading;
 	}
 	public Position position(){
 		return position;
+	}
+
+	public void go(String instructions){}
+
+	public void go(Order... orders){
+		for (Order order : orders) actions.get(order).execute();
+	}
+
+
+	public interface Action {
+		void execute();
 	}
 
 	public static class Position {
@@ -81,6 +95,12 @@ public class Rover {
 			return object != null && object.getClass() == Position.class;
 		}
 
+	}
+
+	private final Map<Order, Action> actions = new HashMap<>();
+	{
+		actions.put(Order.Left, () -> heading = heading.turnLeft());
+		actions.put(Order.Forward, () -> position = position.forward(heading));
 	}
 }
 

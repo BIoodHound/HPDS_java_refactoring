@@ -21,5 +21,11 @@ public class Rover__ {
         assertThat(new Rover(North, new Position(4,4)).position()).isEqualTo(new Position(4,4));
         assertThat(new Rover(North, 4, 4).position()).isEqualTo(new Position(4,4));
     }
-
+    @Test
+    public void could_turn_left() {
+        Rover rover = new Rover(North, new Position(3, 3));
+        rover.go(Left);
+        assertThat(rover.heading()).isEqualTo(West);
+        assertThat(rover.position()).isEqualTo(new Position(3,3));
+    }
 }
