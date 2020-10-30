@@ -1,7 +1,10 @@
 package refactoring;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+
+import static java.util.Arrays.*;
 
 public class Rover {
 	private Heading heading;
@@ -25,17 +28,24 @@ public class Rover {
 	public Heading heading(){
 		return heading;
 	}
+
 	public Position position(){
 		return position;
 	}
 
-	public void go(String instructions){}
-
-	public void go(Order... orders){
-		for (Order order : orders) actions.get(order).execute();
+	public void go(String instructions){
+		stream(instructions.split("")).map(Order::of);
 	}
 
+	public void go(Order... order){
+		for (Order o: order) execute(o);
+	}
 
+	private void execute(Order order){
+		actions.get(order).execute();
+	}
+
+	@FunctionalInterface
 	public interface Action {
 		void execute();
 	}

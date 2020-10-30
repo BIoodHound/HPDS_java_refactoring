@@ -53,4 +53,29 @@ public class Rover__ {
         assertThat(rover.heading()).isEqualTo(West);
         assertThat(rover.position()).isEqualTo(new Position(-3,4));
     }
+
+    @Test
+    public void could_execute_many_orders() {
+        Rover rover = new Rover(West, new Position(3, 1));
+        rover.go(Backward, Left, Forward, Right, Forward);
+        assertThat(rover.heading()).isEqualTo(West);
+        assertThat(rover.position()).isEqualTo(new Position(3,0));
+    }
+
+    @Test
+    public void could_execute_legacy_instructions() {
+        Rover rover = new Rover(West, new Position(3, 1));
+        rover.go("BLFRF");
+        assertThat(rover.heading()).isEqualTo(West);
+        assertThat(rover.position()).isEqualTo(new Position(3,0));
+    }
+
+    @Test
+    public void could_ignore_legacy_instructions() {
+        Rover rover = new Rover(West, new Position(3, 1));
+        rover.go("BL*FRF");
+        assertThat(rover.heading()).isEqualTo(West);
+        assertThat(rover.position()).isEqualTo(new Position(3,0));
+    }
+
 }
