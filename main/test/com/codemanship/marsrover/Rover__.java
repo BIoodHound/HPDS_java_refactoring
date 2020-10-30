@@ -21,11 +21,36 @@ public class Rover__ {
         assertThat(new Rover(North, new Position(4,4)).position()).isEqualTo(new Position(4,4));
         assertThat(new Rover(North, 4, 4).position()).isEqualTo(new Position(4,4));
     }
+
     @Test
     public void could_turn_left() {
         Rover rover = new Rover(North, new Position(3, 3));
         rover.go(Left);
         assertThat(rover.heading()).isEqualTo(West);
         assertThat(rover.position()).isEqualTo(new Position(3,3));
+    }
+
+    @Test
+    public void could_turn_right() {
+        Rover rover = new Rover(East, new Position(5, 1));
+        rover.go(Right);
+        assertThat(rover.heading()).isEqualTo(South);
+        assertThat(rover.position()).isEqualTo(new Position(5,1));
+    }
+
+    @Test
+    public void could_go_forward() {
+        Rover rover = new Rover(South, new Position(-1, 1));
+        rover.go(Forward);
+        assertThat(rover.heading()).isEqualTo(South);
+        assertThat(rover.position()).isEqualTo(new Position(-1,0));
+    }
+
+    @Test
+    public void could_go_backward() {
+        Rover rover = new Rover(West, new Position(-4, 4));
+        rover.go(Backward);
+        assertThat(rover.heading()).isEqualTo(West);
+        assertThat(rover.position()).isEqualTo(new Position(-3,4));
     }
 }

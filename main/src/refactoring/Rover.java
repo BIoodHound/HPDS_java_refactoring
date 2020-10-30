@@ -100,6 +100,8 @@ public class Rover {
 	private final Map<Order, Action> actions = new HashMap<>();
 	{
 		actions.put(Order.Left, () -> heading = heading.turnLeft());
+		actions.put(Order.Right, () -> heading = heading.turnRight());
+		actions.put(Order.Backward, () -> position = position.backward(heading));
 		actions.put(Order.Forward, () -> position = position.forward(heading));
 	}
 }
