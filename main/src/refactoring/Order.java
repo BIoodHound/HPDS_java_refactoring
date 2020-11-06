@@ -1,7 +1,5 @@
 package refactoring;
 
-import java.util.function.Function;
-
 public enum Order {
     Forward, Backward, Left, Right;
 
@@ -16,8 +14,5 @@ public enum Order {
         if (label == 'R') return Right;
         return null;
     }
-    
-
-
 
 }

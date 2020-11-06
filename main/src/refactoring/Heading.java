@@ -23,6 +23,10 @@ public enum Heading {
         return values()[add(-1)];
     }
 
+    public Heading opposite(){
+        return turnLeft().turnLeft();
+    }
+
     private int add(int offset) {
         return (this.ordinal() + offset + values().length) % values().length;
     }

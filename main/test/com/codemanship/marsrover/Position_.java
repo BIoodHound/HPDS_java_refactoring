@@ -1,7 +1,8 @@
 package com.codemanship.marsrover;
 
 import org.junit.Test;
-import refactoring.Rover.Position;
+import refactoring.Position;
+import refactoring.Proprio;
 
 import static org.junit.Assert.assertEquals;
 import static refactoring.Heading.*;
