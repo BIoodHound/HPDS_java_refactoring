@@ -34,6 +34,7 @@ public class Rover {
 
 	private void execute(Order order){
 		actions.get(order).execute();
+
 	}
 
 	@FunctionalInterface
